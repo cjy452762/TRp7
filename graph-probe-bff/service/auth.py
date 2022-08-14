@@ -21,7 +21,6 @@ def test_signin():
    # cookies = requests.utils.dict_from_cookiejar(r.cookies)
 #    print(cookies)
     assert r.status_code == 200
-
     print(r.json())
 
 
