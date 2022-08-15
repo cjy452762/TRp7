@@ -1,5 +1,4 @@
 from http import cookies
-
 import requests
 
 url = 'http://120.26.46.142:8002/api/auth/signin'
@@ -61,3 +60,4 @@ def test_user_list():
     index_url = 'http://120.26.46.142:8002/api/users'
     index_page = session.post(url=index_url).text
     print(index_page)
+    assert response.status_code == 200
