@@ -1,0 +1,9 @@
+class Ceshiren:
+    def open(self):
+        ...
+
+    def search(self, keyword):
+        ...
+
+    def clear(self):
+        ...
