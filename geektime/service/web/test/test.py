@@ -4,14 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from geektime.service.web.test.cesgiren import Ceshiren
+
 
 class TestCeshiren:
     def setup_class(self):
-        # 打开浏览器
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(5)
-        # 进入网站
-        self.driver.get('https://ceshiren.com/')
+        ceshiren=Ceshiren()
+        ceshiren.open()
+
 
     def setup(self):
         self.driver.find_element(By.ID, 'search-button').click()
