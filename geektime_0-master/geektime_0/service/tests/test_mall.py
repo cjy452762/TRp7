@@ -1,4 +1,4 @@
-from geektime_0.service.api.mall import Mall
+from geektime_0.service.api.api.mall import Mall
 
 
 class TestMall:

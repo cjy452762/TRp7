@@ -40,7 +40,7 @@ class TestOwnersAdd(TestOwner):
         {'telephone': '6085551023', 'city': 'x'},
         {'telephone': '6085551023', 'city': 'xxxx'},
         {'telephone': '6085551023', 'city': 'ff  xxx'},
-
+        # {'telephone': '', 'firstName': 'hogwarts'},
     ])
     def test_add_success(self, owner):
         # 初始化数据
@@ -58,7 +58,6 @@ class TestOwnersAdd(TestOwner):
         {'telephone': '6085551023', 'firstName': '1a'},
         {'telephone': '', 'firstName': 'hogwarts'},
         {'telephone': 'abfsfef', 'firstName': 'fffffff'},
-
     ])
     def test_add_fail(self, owner):
         # 初始化数据

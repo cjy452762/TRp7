@@ -18,6 +18,9 @@ class TestCeshirenSearch:
     def teardown(self):
         self.search.clear_search()
 
+    def teardown_class(self):
+        self.ceshiren.close()
+
     @pytest.mark.parametrize("keyword", [
         'selenium',
         'appium',
@@ -31,3 +34,4 @@ class TestCeshirenSearch:
     ])
     def test_search_service(self, keyword):
         assert keyword in self.search.search(keyword)
+

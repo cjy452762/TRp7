@@ -1,3 +1,4 @@
+import pytest
 import requests
 import json
 
@@ -19,7 +20,7 @@ def test_work1():
     # print("首个商品=>", goods)
     # 获取首个商品详情
     pro = x.doDetail(goods)
-    # print("首个商品详rodu情=>", pro)
+    print("首个商品详rodu情=>", pro)
     # 获取购物车
     beforeCarts = x.doCart()
     # 添加购物车
@@ -29,7 +30,6 @@ def test_work1():
     print('添加前商品数量：', beforeCarts['cartTotal']['goodsCount'])
     print('添加后商品数量：', afterCarts['cartTotal']['goodsCount'])
     assert afterCarts['cartTotal']['goodsCount'] > beforeCarts['cartTotal']['goodsCount']
-
 
 
 class Work1:
@@ -68,7 +68,7 @@ class Work1:
         assert response.status_code == 200
         res = json.loads(response.text)
         productId = res['data']['specificationList'][0]['valueList'][0]
-        print('productId=>', res['data']['specificationList'][0]['valueList'][0])
+        # print('productId=>', res['data']['specificationList'][0]['valueList'][0])
         return productId
 
     # 添加购物车接口
@@ -81,8 +81,9 @@ class Work1:
         })
         response = requests.post(requestUrl, data=body, headers=headers)
         res = json.loads(response.text)
+        print('goodsIS=>', pro['id'])
         assert response.status_code == 200
-        assert res['errno'] == 0
+        # assert res['error'] == 0
 
     def doCart(self):
         requesUrl = baseurl + '/wx/cart/index'

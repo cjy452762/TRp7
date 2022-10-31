@@ -1,36 +1,25 @@
 from dataclasses import dataclass
 
-from geektime_0.service.wework.model.calendar import Calendar
-from geektime_0.service.wework.model.schedule import Schedule
-from geektime_0.service.wework.model.schedule_api import ScheduleApi
-from geektime_0.service.wework.model.session import Session
+from geektime_0.service.wework.model.calendar_app_api import CalendarAppApi
+from geektime_0.service.wework.model.calendar_model import CalendarModel
+from geektime_0.service.wework.model.schedule_model import ScheduleModel
 
 
 @dataclass
 class CalendarApi:
+    """
+    提供业务的行为定义
+    """
 
-    def __init__(self, session: Session, calendar: Calendar = None):
-        self.session = session
-        self.calendar = calendar
-
-    def set_session(self, session: Session):
-        self.session = session
+    def __init__(self, app: CalendarAppApi, calendar_id: str):
+        self.app = app
+        self.cal_id = calendar_id
 
     @classmethod
-    def add(cls, calendar: Calendar, session: Session):
-        """
-        从零到一，是类方法
-        :param calendar:
-        :return:
-        """
+    def add(cls, calendar: CalendarModel):
         ...
 
-    def update(self, calendar: Calendar):
-        """
-        在已有对象上操作，使用示例方法
-        :param calendar:
-        :return:
-        """
+    def update(self, calendar: CalendarModel):
         ...
 
     def delete(self):
@@ -40,5 +29,8 @@ class CalendarApi:
     def list(cls):
         ...
 
-    def add_schedule(self, schedule: Schedule):
+    def add_schedule(self, schedule: ScheduleModel):
+        ...
+
+    def list_schedules(self):
         ...
